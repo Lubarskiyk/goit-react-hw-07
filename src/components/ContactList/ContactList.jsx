@@ -1,11 +1,12 @@
 import Contact from "../Contact/Contact.jsx";
 import css from "./ContactList.module.css";
 import { useSelector } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice.js";
+
 import { selectFilters } from "../../redux/filtersSlice.js";
+import { getIsContacts } from "../../redux/selectors.js";
 
 export default function ContactList() {
-  const phoneBook = useSelector(selectContacts);
+  const phoneBook = useSelector(getIsContacts);
   const filteredBook = useSelector(selectFilters);
 
   const visibleContacts = phoneBook.filter(phone =>
